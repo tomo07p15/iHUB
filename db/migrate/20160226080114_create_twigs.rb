@@ -1,8 +1,9 @@
 class CreateTwigs < ActiveRecord::Migration
   def change
     create_table :twigs do |t|
-
-      t.timestamps null: false
+      t.string    :user_id
+      t.text      :twigtext
+      t.timestamps 
     end
   end
 end
