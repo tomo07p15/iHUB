@@ -3,7 +3,7 @@ class CreateTwigs < ActiveRecord::Migration
     create_table :twigs do |t|
       t.string    :user_id
       t.text      :twigtext
-      t.timestamps 
+      t.timestamps
     end
   end
 end
