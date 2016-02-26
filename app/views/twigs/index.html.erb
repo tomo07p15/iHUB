@@ -1,1 +1,5 @@
-<%= @twigtweet %>
+<div class="contents row" >
+  <% @twigtweets.each do |twig| %>
+    <p><%= twig.twigtext %></p>
+  <% end %>
+</div>
