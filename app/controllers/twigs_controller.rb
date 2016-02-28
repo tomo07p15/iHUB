@@ -1,6 +1,6 @@
 class TwigsController < ApplicationController
 
-  before_action :move_to_index, exept: :index
+before_action :move_to_index, except: :index
 
 
   def index
@@ -23,7 +23,7 @@ class TwigsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index unless user_sined_in?
+      redirect_to action: :index unless user_signed_in?
   end
 
 end
