@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'twigs' => 'twigs#index'
+  resources :twigs, only: :index
 end
