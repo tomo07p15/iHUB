@@ -1,10 +1,41 @@
+<head>
+  <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+    <title>i HUB</title>
+</head>
+
+
+  <body>
+<header>
+
+  <div class="navbar">
+    <ul>
+      <li>Timeline</li>
+      <li>Twig</li>
+      <li>Ongoing</li>
+      <li>Mypage</li>
+      <li class="title">i HUB</li>
+      <li>
+
+        <div class="user_nav grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a href="/users/<%= current_user.id %>">マイページ</a>
+        <%= form_tag('/twigs/new', method: :get) do %></li>
+        <input type="submit" value="sent">
+        <% end %>
+
+        </div>
+    </div>
+    </ul>
+  </div>
+</header>
  <div class="contents row" >
     <p><%= @nickname %>さんの投稿一覧</p>
     <% @twigs.each do |twig| %>
         <p>
-          <%= br(twig.twigtext) %>
+          <%= twig.twigtext %>
         </p>
-        <span class="name"><%= twig.name %></span>
+        <span class="name"><%= twig.id %></span>
       </div>
     <% end %>
   </div>
