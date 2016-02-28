@@ -11,7 +11,7 @@ before_action :move_to_index, except: :index
   end
 
   def create
-    Twig.create(twig_params)
+    Twig.create(twigtext: twig_params[:twigtext], user_id: current_user.id)
   end
 
   def delete
