@@ -1,0 +1,10 @@
+ <div class="contents row" >
+    <p><%= @nickname %>さんの投稿一覧</p>
+    <% @twigs.each do |twig| %>
+        <p>
+          <%= br(twig.twigtext) %>
+        </p>
+        <span class="name"><%= twig.name %></span>
+      </div>
+    <% end %>
+  </div>
