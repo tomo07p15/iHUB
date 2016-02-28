@@ -54,8 +54,13 @@
       <% end %>
     </div>
     <div class="twig">
-    <% @twigtweets.each do |twig| %>
-    <%= twig.twigtext %>
+        <div class="twig-left">
+        </div>
+
+        <div class="twig-right">
+        <% @twigtweets.each do |twig| %>
+        <%= twig.twigtext %>
+        </div>
     </div>
   </div>
 
@@ -65,7 +70,4 @@
 </div>
 
 
-  <footer>
-   <p>Copyright(C) i HUB ALL RIGHTS RESERVED.</p>
-  </footer>
 </body>
