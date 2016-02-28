@@ -5,4 +5,7 @@ class TwigsController < ApplicationController
     @twigtweets = Twig.all
   end
 
+  def new
+  end
+
 end

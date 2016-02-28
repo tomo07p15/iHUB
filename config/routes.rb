@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :twigs, only: :index
+  root 'twigs#index'
+  resources :twigs, only: [:index, :new]
 end
