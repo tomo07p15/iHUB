@@ -15,15 +15,27 @@
       <li>Ongoing</li>
       <li>Mypage</li>
       <li class="title">i HUB</li>
-      <li><%= form_tag('/twigs/new', method: :get) do %></li>
-      <input type="submit" value="sent">
+      <li>
+      <% if user_signed_in? %>
+        <div class="user_nav grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= form_tag('/twigs/new', method: :get) do %></li>
+        <input type="submit" value="sent">
+        <% end %>
+      <% else %>
+        <div class="grid-6">
+            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+          </div>
       <% end %>
+        </div>
     </div>
     </ul>
   </div>
 </header>
 
 <div class="contents" >
+
   <div class="left-content">
     <div class="profile">
       <div>
@@ -63,6 +75,7 @@
 
         <div class="twig-right">
         <% @twigtweets.each do |twig| %>
+        <%= twig.user_id %>
         <%= twig.twigtext %>
         </div>
     </div>

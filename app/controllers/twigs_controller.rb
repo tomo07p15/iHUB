@@ -1,8 +1,10 @@
 class TwigsController < ApplicationController
 
+  before_action :move_to_index, exept: :index
+
 
   def index
-    @twigtweets = Twig.all
+    @twigtweets = Twig.order("created_at DESC")
   end
 
   def new
@@ -12,9 +14,16 @@ class TwigsController < ApplicationController
     Twig.create(twig_params)
   end
 
+  def delete
+  end
+
   private
   def twig_params
-    params.permit(:twigtext)
+    params.permit(:user_id, :twigtext)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_sined_in?
   end
 
 end
