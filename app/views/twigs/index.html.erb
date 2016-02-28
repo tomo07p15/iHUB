@@ -19,6 +19,7 @@
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a href="/users/<%= current_user.id %>">マイページ</a>
         <%= form_tag('/twigs/new', method: :get) do %></li>
         <input type="submit" value="sent">
         <% end %>
