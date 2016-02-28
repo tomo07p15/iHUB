@@ -15,7 +15,7 @@
       <li>Ongoing</li>
       <li>Mypage</li>
       <li class="title">i HUB</li>
-      <li><%= form_tag('/twigs', method: :post) do %></li>
+      <li><%= form_tag('/twigs/new', method: :get) do %></li>
       <input type="submit" value="sent">
       <% end %>
     </div>
@@ -52,7 +52,7 @@
 
   <div class="center-content">
     <div class="twigbox">
-      <%= form_tag('/twigs', method: :post) do %>
+      <%= form_tag('/twigs/new', method: :get) do %>
       <input placeholder="What's idea?" type="text" name="name">
       <input type="submit" value="sent">
       <% end %>
