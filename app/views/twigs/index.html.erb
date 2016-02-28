@@ -1,6 +1,73 @@
-<div class="contents row" >
-  <% @twigtweets.each do |twig| %>
-    <p><%= twig.twigtext %></p>
+<head>
+  <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+    <title>i HUB</title>
+</head>
+
+
+  <body>
+<header>
+
+  <div class="navbar">
+    <ul>
+      <li>Timeline</li>
+      <li>Twig</li>
+      <li>Ongoing</li>
+      <li>Mypage</li>
+      <li class="title">i HUB</li>
+    </ul>
+  </div>
+</header>
+
+<div class="contents" >
+  <div class="left-content">
+    <div class="profile">
+      <div>
+            <img src= "team.jpg" alt="はいけい" class="backgroung-image">
+      </div>
+      <div>
+            <img src= "warning.jpg" alt="ゆうと" class="profile-image">
+            <h4 class="profile-name">ゆいと</h4>
+      </div>
+      <div>
+        <table>
+          <tr>
+            <th>Seed</th>
+            <th>Twig</th>
+            <th>Ongoing</th>
+          </tr>
+          <tr>
+            <td>7700</td>
+            <td>400</td>
+            <td>10</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-content">
+    <div class="twigbox">
+      <%= form_tag('/twigs', method: :post) do %>
+      <input placeholder="What's idea?" type="text" name="name">
+      <input type="submit" value="sent">
+      <% end %>
+    </div>
+    <div class="twig">
+        <div class="twig-left">
+        </div>
+
+        <div class="twig-right">
+        <% @twigtweets.each do |twig| %>
+        <%= twig.twigtext %>
+        </div>
+    </div>
+  </div>
+
+  <div class="right-content">
   </div>
   <% end %>
 </div>
+
+
+</body>
