@@ -4,7 +4,7 @@ before_action :move_to_index, except: :index
 
 
   def index
-    @twigtweets = Twig.order("created_at DESC")
+    @twigtweets = Twig.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -19,7 +19,7 @@ before_action :move_to_index, except: :index
 
   private
   def twig_params
-    params.permit(:user_id, :twigtext)
+    params.permit(:twigtext)
   end
 
   def move_to_index

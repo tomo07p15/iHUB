@@ -70,15 +70,31 @@
       <input type="submit" value="sent">
       <% end %>
     </div>
-    <div class="twig">
+
+
+        <% @twigtweets.each do |twigtweet| %>
+        <div class="twig">
         <div class="twig-left">
         </div>
 
         <div class="twig-right">
-        <% @twigtweets.each do |twig| %>
-        <%= twig.user_id %>
-        <%= twig.twigtext %>
+
+        <%= twigtweet.twigtext %>
+        <%= twigtweet.user.nickname %>
+          <div>
+            <% if user_signed_in? && current_user.id == twigtweet.user_id %>
+              <ul class="more_list">
+                <li>
+                  <%= link_to '編集', "twigs/#{twig.id}/edit", method: :get %>
+                </li>
+                <li>
+                  <%= link_to '削除', "twigs/#{twig.id}", method: :delete %>
+                </li>
+              </ul>
+          </div>
+          <% end %>
         </div>
+
     </div>
   </div>
 
