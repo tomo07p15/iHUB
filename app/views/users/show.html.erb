@@ -1,40 +1,25 @@
-<head>
-  <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css">
-    <title>i HUB</title>
-</head>
 
-
-  <body>
-<header>
-
-  <div class="navbar">
-    <ul>
-      <li>Timeline</li>
-      <li>Twig</li>
-      <li>Ongoing</li>
-      <li>Mypage</li>
-      <li class="title">i HUB</li>
-      <li>
-
-        <div class="user_nav grid-6">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <a href="/users/<%= current_user.id %>">マイページ</a>
-        <%= form_tag('/twigs/new', method: :get) do %></li>
-        <input type="submit" value="sent">
-        <% end %>
-
-        </div>
-    </div>
-    </ul>
-  </div>
-</header>
  <div class="contents row" >
-    <p><%= @nickname %>さんの投稿一覧</p>
-    <% @twigs.each do |twig| %>
+    <% if user_signed_in? && current_user.id == @twig.user_id %>
+      <ul class="more_list">
+        <% if user_signed_in? && current_user.id == twigtweet.user_id %>
+           <ul class="more_list">
+                <li>
+                <%= link_to "編集", "/twigs/#{twigtweet.id}/edit", method: :get %>
+                </li>
+                <li>
+                <%= link_to "削除", "/twigs/#{twigtweet.id}", method: :delete %>
+                </li>
+              </ul>
         <p>
           <%= twig.twigtext %>
         </p>
       </div>
-    <% end %>
+    </p>
+    <span class="name">
+      <a href="/users/<%= @twig.user.id %>">
+        <span>投稿者</span><%= @twig.user.nickname %>
+      </a>
+    </span>
   </div>
+</div>

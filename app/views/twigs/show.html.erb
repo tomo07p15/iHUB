@@ -1,0 +1,23 @@
+<div class ="contents row">
+            <% if user_signed_in? && current_user.id == @twig.user_id %>
+      <div class="more">
+      <ul class="more_list">
+        <li>
+          <%= link_to '編集', "/twigs/#{@twig.id}/edit", method: :get %>
+        </li>
+        <li>
+          <%= link_to '削除', "/twigs/#{@twig.id}", method: :delete %>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+    <p>
+      <%= @twig.twigtext %>
+    </p>
+    <span class="name">
+<!--       <a href="/users/<%= @twig.user.id %>"> -->
+<span></span><%= @twig.user.nickname %>
+      </a>
+    </span>
+  </div>
+</div>

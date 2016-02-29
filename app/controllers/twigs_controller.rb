@@ -15,7 +15,6 @@ before_action :move_to_index, except: :index
   end
 
   def destroy
-
     twig = Twig.find(params[:id])
     if twig.user_id == current_user.id
         twig.destroy
@@ -27,12 +26,16 @@ before_action :move_to_index, except: :index
   end
 
   def update
-
     twig = Twig.find(params[:id])
     if twig.user_id == current_user.id
       twig.update(twig_params)
     end
   end
+
+  def show
+    @twig = Twig.find(params[:id])
+  end
+
 
 
   private

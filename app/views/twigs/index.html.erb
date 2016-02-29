@@ -10,11 +10,11 @@
 
   <div class="navbar">
     <ul>
-      <li>Timeline</li>
-      <li>Twig</li>
-      <li>Ongoing</li>
-      <li>Mypage</li>
-      <li class="title">i HUB</li>
+      <li><img src= "team.jpg" alt="タイムラインアイコン" class="backgroung-image"><a href="/twigs">Timeline</a></li>
+      <li><img src= "team.jpg" alt="Twigアイコン" class="backgroung-image"><a href="/users/<%= current_user.id %>">Twig(未実装）</a></li>
+      <li><img src= "team.jpg" alt="Ongoingアイコン" class="backgroung-image">Ongoing</li>
+      <li class="title"><img src= "team.jpg" alt="i HUB アイコン" class="backgroung-image">i HUB</li>
+
       <li>
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
@@ -36,11 +36,10 @@
 </header>
 
 <div class="contents" >
-
   <div class="left-content">
     <div class="profile">
       <div>
-            <img src= "team.jpg" alt="はいけい" class="backgroung-image">
+            <img src= "team.jpg" alt="プロフィール" class="backgroung-image">
       </div>
       <div>
             <img src= "warning.jpg" alt="ゆうと" class="profile-image">
@@ -55,13 +54,14 @@
           </tr>
           <tr>
             <td>7700</td>
-            <td>400</td>
+            <td><%= Twig.group(:user_id).count.keys %></td>
             <td>10</td>
           </tr>
         </table>
       </div>
     </div>
   </div>
+
 
   <div class="center-content">
     <div class="twigbox">
@@ -75,6 +75,7 @@
         <% @twigtweets.each do |twigtweet| %>
         <div class="twig">
         <div class="twig-left">
+        <img src= "team.jpg" alt="はいけい" class="backgroung-image">
         </div>
 
         <div class="twig-right">
@@ -83,6 +84,9 @@
           <div>
             <% if user_signed_in? && current_user.id == twigtweet.user_id %>
               <ul class="more_list">
+                <li>
+                <%= link_to "詳細", "/twigs/#{twigtweet.id}/", method: :get %>
+                </li>
                 <li>
                 <%= link_to "編集", "/twigs/#{twigtweet.id}/edit", method: :get %>
                 </li>
