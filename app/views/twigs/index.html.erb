@@ -84,6 +84,7 @@
             <% if user_signed_in? && current_user.id == twigtweet.user_id %>
               <ul class="more_list">
                 <li>
+                <%= link_to "編集", "/twigs/#{twigtweet.user_id}/edit", method: :dget %>
                   <a href="/twigs/<%= current_user.id %>">編集</a>
                 </li>
                 <li>

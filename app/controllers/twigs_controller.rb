@@ -15,6 +15,7 @@ before_action :move_to_index, except: :index
   end
 
   def destroy
+
     twig = Twig.find(params[:id])
     if twig.user_id == current_user.id
         twig.destroy
