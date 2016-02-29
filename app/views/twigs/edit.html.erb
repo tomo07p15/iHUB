@@ -1,0 +1,9 @@
+<div class="contents row">
+    <%= form_tag("/twigs/#{@twig.id}", method: :patch) do %>
+      <h3>
+        編集する
+      </h3>
+      <textarea cols="30" name="twigtext" placeholder="text" rows="10"><%= @twig.twigtext %></textarea>
+      <input type="submit" value="SENT">
+    <% end %>
+  </div>

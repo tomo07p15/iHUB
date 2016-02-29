@@ -22,7 +22,17 @@ before_action :move_to_index, except: :index
       end
   end
 
+  def edit
+    @twig = Twig.find(params[:id])
+  end
 
+  def update
+
+    twig = Twig.find(params[:id])
+    if twig.user_id == current_user.id
+      twig.update(twig_params)
+    end
+  end
 
 
   private
