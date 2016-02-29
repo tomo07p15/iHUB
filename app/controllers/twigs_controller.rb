@@ -14,8 +14,16 @@ before_action :move_to_index, except: :index
     Twig.create(twigtext: twig_params[:twigtext], user_id: current_user.id)
   end
 
-  def delete
+  def destroy
+
+    twig = Twig.find(params[:id])
+    if twig.user_id == current_user.id
+        twig.destroy
+      end
   end
+
+
+
 
   private
   def twig_params
