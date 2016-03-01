@@ -9,57 +9,13 @@
 <header>
 
   <div class="navbar">
-    <ul>
-      <li><img src= "team.jpg" alt="タイムラインアイコン" class="backgroung-image"><a href="/twigs">Timeline</a></li>
-      <li><img src= "team.jpg" alt="Twigアイコン" class="backgroung-image"><a href="/users/<%= current_user.id %>">Twig(未実装）</a></li>
-      <li><img src= "team.jpg" alt="Ongoingアイコン" class="backgroung-image">Ongoing</li>
-      <li class="title"><img src= "team.jpg" alt="i HUB アイコン" class="backgroung-image">i HUB</li>
-
-      <li>
-      <% if user_signed_in? %>
-        <div class="user_nav grid-6">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <a href="/users/<%= current_user.id %>">マイページ</a>
-        <%= form_tag('/twigs/new', method: :get) do %></li>
-        <input type="submit" value="sent">
-        <% end %>
-      <% else %>
-        <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-          </div>
-      <% end %>
-        </div>
-    </div>
-    </ul>
+  <%= render partial:"header" %>
   </div>
 </header>
 
 <div class="contents" >
   <div class="left-content">
-    <div class="profile">
-      <div>
-            <img src= "team.jpg" alt="プロフィール" class="backgroung-image">
-      </div>
-      <div>
-            <img src= "warning.jpg" alt="ゆうと" class="profile-image">
-            <h4 class="profile-name">ゆいと</h4>
-      </div>
-      <div>
-        <table>
-          <tr>
-            <th>Seed</th>
-            <th>Twig</th>
-            <th>Ongoing</th>
-          </tr>
-          <tr>
-            <td>7700</td>
-            <td><%= Twig.group(:user_id).count.keys %></td>
-            <td>10</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+  <%= render partial:"profile" %>
   </div>
 
 
@@ -71,40 +27,9 @@
       <% end %>
     </div>
 
-
+      <div class="twig">
         <% @twigtweets.each do |twigtweet| %>
-        <div class="twig">
-        <div class="twig-left">
-        <img src= "team.jpg" alt="はいけい" class="backgroung-image">
-        </div>
-
-        <div class="twig-right">
-        <%= twigtweet.twigtext %>
-        <%= twigtweet.user.nickname %>
-          <div>
-            <% if user_signed_in? && current_user.id == twigtweet.user_id %>
-              <ul class="more_list">
-                <li>
-                <%= link_to "詳細", "/twigs/#{twigtweet.id}/", method: :get %>
-                </li>
-                <li>
-                <%= link_to "編集", "/twigs/#{twigtweet.id}/edit", method: :get %>
-                </li>
-                <li>
-                <%= link_to "削除", "/twigs/#{twigtweet.id}", method: :delete %>
-                </li>
-              </ul>
-          </div>
-          <% end %>
-        </div>
-
+          <%= render partial:"twig", locals: { twigtweet: twigtweet} %>
+        <% end %>
     </div>
-  </div>
-
-  <div class="right-content">
-  </div>
-  <% end %>
-</div>
-
-
 </body>

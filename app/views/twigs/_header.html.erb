@@ -1,0 +1,23 @@
+    <ul>
+      <li><img src= "team.jpg" alt="タイムラインアイコン" class="backgroung-image"><a href="/twigs">Timeline</a></li>
+      <li><img src= "team.jpg" alt="Twigアイコン" class="backgroung-image"><a href="/users/<%= current_user.id %>">Twig(未実装）</a></li>
+      <li><img src= "team.jpg" alt="Ongoingアイコン" class="backgroung-image">Ongoing</li>
+      <li class="title"><img src= "team.jpg" alt="i HUB アイコン" class="backgroung-image">i HUB</li>
+
+      <li>
+      <% if user_signed_in? %>
+        <div class="user_nav grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a href="/users/<%= current_user.id %>">マイページ</a>
+        <%= form_tag('/twigs/new', method: :get) do %></li>
+        <input type="submit" value="sent">
+        <% end %>
+      <% else %>
+        <div class="grid-6">
+            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+          </div>
+      <% end %>
+        </div>
+    </div>
+    </ul>

@@ -1,0 +1,23 @@
+    <div class="profile">
+      <div>
+            <img src= "team.jpg" alt="プロフィール" class="backgroung-image">
+      </div>
+      <div>
+            <img src= "warning.jpg" alt="ゆうと" class="profile-image">
+            <h4 class="profile-name">ゆいと</h4>
+      </div>
+      <div>
+        <table>
+          <tr>
+            <th>Seed</th>
+            <th>Twig</th>
+            <th>Ongoing</th>
+          </tr>
+          <tr>
+            <td>7700</td>
+            <td><%= Twig.group(:user_id).count.keys %></td>
+            <td>10</td>
+          </tr>
+        </table>
+      </div>
+    </div>
