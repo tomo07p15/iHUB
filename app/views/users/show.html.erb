@@ -1,3 +1,14 @@
+<header>
+
+  <div class="navbar">
+  <%= render partial:"twigs/header" %>
+  </div>
+</header>
+
+  <div class="left-content">
+  <%= render partial:"twigs/profile" %>
+  </div>
+
   <div class="center-content">
     <div class="twigbox">
       <%= form_tag('/twigs/new', method: :get) do %>
@@ -6,33 +17,8 @@
       <% end %>
     </div>
 
-        <% @twigs.each do |twig| %>
         <div class="twig">
-        <div class="twig-left">
-        <img src= "team.jpg" alt="はいけい" class="backgroung-image">
-        </div>
-
-        <div class="twig-right">
-        <%= twig.twigtext %>
-        <%= twig.user.nickname %>
-          <div>
-
- <div class="contents row" >
-      <ul class="more_list">
-        <li>
-          <%= link_to "編集", "/twigs/#{twig.id}/edit", method: :get %>
-        </li>
-        <li>
-          <%= link_to "削除", "/twigs/#{twig.id}", method: :delete %>
-        </li>
-          </ul>
-          </ul>
-        </div>
-
-      <div>
-    <span class="name">
-      <a href="/users/<%= twig.user.id %>">
-      </a>
-    </span>
-    <% end %>
+        <% @twigs.each do |twig| %>
+          <%= render partial: "twigs/twig", locals: { twigtweet: twig } %>
+        <% end %>
 </div>
