@@ -1,0 +1,36 @@
+<head>
+  <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+  <body>
+<header>
+  <div class="navbar">
+  <%= render partial:"twigs/header" %>
+  </div>
+</header>
+
+<div class="twigbox">
+
+</div>
+
+<div class="ongoingcontents">
+<% @ongoings.each do |ongoing| %>
+  <div class="ongoingbox">
+
+    <div class="ongoingtitle">
+      <%= ongoing.projectname %>
+    </div>
+
+    <div class="ongoingimage">
+      <%= ongoing.image %>
+    </div>
+
+    <div class="ongoingsammury">
+      <%= ongoing.summary %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
