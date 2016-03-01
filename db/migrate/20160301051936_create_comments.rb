@@ -1,6 +1,6 @@
-class CreateTwigcomments < ActiveRecord::Migration
+class CreateComments < ActiveRecord::Migration
   def change
-    create_table :twigcomments do |t|
+    create_table :comments do |t|
       t.integer :user_id
       t.integer :twig_id
       t.text :text

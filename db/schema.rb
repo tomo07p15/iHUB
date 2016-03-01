@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229123834) do
+ActiveRecord::Schema.define(version: 20160301051936) do
 
-  create_table "twigcomments", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "twig_id",    limit: 4
     t.text     "text",       limit: 65535
