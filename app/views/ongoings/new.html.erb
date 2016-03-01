@@ -1,0 +1,26 @@
+<head>
+  <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+  <body>
+<header>
+  <div class="navbar">
+  <%= render partial:"twigs/header" %>
+  </div>
+</header>
+
+<div class="contents row">
+  <%= form_tag('/ongoings', method: :post) do %>
+    <h3>
+      投稿する
+    </h3>
+    <textarea cols="30" name="projectname" placeholder="プロジェクトの名前を入力してください。" rows="10"></textarea>
+    <textarea cols="30" name="projectslide" placeholder="使用するパワーポイントを入力してください" rows="10"></textarea>
+    <textarea cols="30" name="insight" placeholder="プロジェクトの説明をしてください。" rows="10"></textarea>
+    <textarea cols="30" name="summary"  ="要約を入力してください。一覧のページで使用します" rows="10"></textarea>
+    <input placeholder="使用したいサムネイル" type="text" name="image">
+    <input type="submit" value="SENT">
+  <% end %>
+</div>
