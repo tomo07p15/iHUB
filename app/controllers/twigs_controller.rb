@@ -34,9 +34,8 @@ before_action :move_to_index, except: :index
 
   def show
     @twig = Twig.find(params[:id])
+    @comments = @twig.comments.includes(:user)
   end
-
-
 
   private
   def twig_params
