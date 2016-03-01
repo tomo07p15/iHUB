@@ -1,0 +1,40 @@
+<header>
+
+  <div class="navbar">
+  <%= render partial:"twigs/header" %>
+  </div>
+</header>
+
+<div class ="contents row">
+    <% if user_signed_in? && current_user.id == @ongoing.user_id %>
+     <div class="more">
+      <ul class="more_list">
+        <li>
+          <%= link_to '編集', "/ongoings/#{@ongoing.id}/edit", method: :get %>
+        </li>
+        <li>
+          <%= link_to '削除', "/twigs/#{@ongoing.id}", method: :delete %>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="projectname">
+      <%= @ongoing.projectname %>
+    </div>
+
+    <div class="projectslide">
+      <%= @ongoing.projectslide %>
+    </div>
+
+    <div class="insight">
+      <%= @ongoing.insight %>
+    </div>
+
+
+    <span class="name">
+<span></span><%= @ongoing.user.nickname %>
+      </a>
+    </span>
+  </div>
+

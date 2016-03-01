@@ -25,7 +25,8 @@
   <div class="ongoingbox">
 
     <div class="ongoingtitle">
-      <%= ongoing.projectname %>
+    <%= ongoing.projectname %>
+    <%= link_to "詳細", "/ongoings/#{ongoing.id}/", method: :get %>
     </div>
 
     <div class="ongoingimage">
