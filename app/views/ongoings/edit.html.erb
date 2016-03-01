@@ -1,0 +1,13 @@
+<div class="contents row">
+    <%= form_tag("/ongoings/#{@ongoing.id}", method: :patch) do %>
+      <h3>
+        編集する
+      </h3>
+          <textarea cols="30" name="projectname" placeholder="" rows="10"><%= @ongoing.projectname %></textarea>
+          <textarea cols="30" name="projectslide" placeholder="" rows="10"><%= @ongoing.projectslide %></textarea>
+          <textarea cols="30" name="insight" placeholder="" rows="10"><%= @ongoing.insight %></textarea>
+          <textarea cols="30" name="summary"  ="" rows="10"><%= @ongoing.summary %></textarea>
+          <input placeholder="" type="text" name="image"><%= @ongoing.image %>
+          <input type="submit" value="SENT">
+    <% end %>
+  </div>
