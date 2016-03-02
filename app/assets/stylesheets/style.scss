@@ -1,5 +1,7 @@
+
+
 body {
-  background-color: white;
+  background-color: #cce5ff;
   font-size: 14px;
   color: black;
   margin: 0 auto;
@@ -10,25 +12,32 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 
-header {
-  margin-top: 10px;
+.header {
+  background-color: white;
 }
 
 .heading {
-  width: 960px;
   margin: 0 auto;
+}
+
+.usertab{
+  float: right;
+}
+
+.submit{
+    float: right;
 }
 
 .navbar {
   height: 20px;
   width: 930px;
-  background-color: red;
+  background-color: white;
   margin: 0 auto;
    padding: 15px;
 }
 
 .contents {
-  background-color: white;
+  background-color: #cce5ff;
   width: 960px;
   margin: 10px auto;
 }
@@ -36,7 +45,7 @@ header {
 .left-content {
   height: 370px;
   width: 200px;
-  background-color: white;
+  background-color: #cce5ff;
   float: left;
   padding: 10px;
 }
@@ -44,49 +53,83 @@ header {
 .profile {
   height: 150px;
   width: 150px;
-  background-color: gray;
+  background-color: #cce5ff;
   float: right;
   padding: 10px;
+}
+
+.profile-image {
+  height: 30px;
+  width: 30px;
+}
+
+.profile-name{
+  font-size: 16px;
+  float: right;
+}
+
+
+.userstatus{
+  height: 70px;
+  width: 160px;
+  margin: 10px auto;
+  background-color: white;
+}
+
+.statusbox{
+  height: 50px;
+  width: 140px;
+  background-color: white;
+  margin: 10px auto;
 }
 
 .center-content {
   height: 370px;
   width: 600px;
-  background-color: blue;
-  margin: 10px auto;
+  background-color: #cce5ff;
+  float: left;
+}
+
+.twig {
+  width: 500px;
+  background-color: white;
+  padding: 10px;
 }
 
 .twigbox {
-  width: 580px;
+  width: 500px;
   background-color: white;
   padding: 10px;
 }
 
 .twig-right {
   width: 300px;
+  height: 56px;
   background-color: white;
   padding: 10px;
+  float: left;
 }
 
 .twig-left {
   width: 100px;
   background-color: red;
   padding: 10px;
+  float: left;
 }
 
-.right-content {
+/*.right-content {
   height: 370px;
   width: 200px;
-  background-color: white;
+  background-color: #cce5ff;
   float: right;
-}
+}*/
 
 footer {
   background-color: gray;
   height:50px;
 }
 
-.ckearfix:after {
+.clearfix:after {
   content: "";
   clear: both;
   display: block;
@@ -122,21 +165,46 @@ td {
 }
 
 
-.background-image {
-  height: 100px;
-  width: 100px;
-}
 
-.profile-image {
+
+/*.footer {
+  text-align: center;
+}*/
+
+
+
+.backgroung-image{
   height: 30px;
   width: 30px;
+
 }
 
-.profile-name{
-  font-size: 16px;
-  float: right;
+
+
+.ongoingcontents{
+  margin: 10px auto;
 }
 
-footer {
-  text-align: center;
+.ongoingbox{
+  height: 160px;
+  width: 160px;
+  margin: 10px auto;
+}
+
+.ongoingtitle{
+  height: 10px;
+  width: 10px;
+  margin: 10px auto;
+}
+
+.ongoingimage{
+  height: 30px;
+  width: 30px;
+  margin: 10px auto;
+}
+
+.ongoingsammury{
+  height: 10px;
+  width: 10px;
+  margin: 10px auto;
 }
