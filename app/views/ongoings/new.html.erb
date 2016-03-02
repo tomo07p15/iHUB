@@ -19,8 +19,10 @@
     <textarea cols="30" name="projectname" placeholder="プロジェクトの名前を入力してください。" rows="10"></textarea>
     <textarea cols="30" name="projectslide" placeholder="使用するパワーポイントを入力してください" rows="10"></textarea>
     <textarea cols="30" name="insight" placeholder="プロジェクトの説明をしてください。" rows="10"></textarea>
-    <textarea cols="30" name="summary"  ="要約を入力してください。一覧のページで使用します" rows="10"></textarea>
-    <input placeholder="使用したいサムネイル" type="text" name="image">
+    <textarea cols="30" name="summary"  ="要約を入力してください。" rows="10"></textarea>
+    <%= form_for @ongoing do |f| %>
+    <%= f.file_field :image %>
+    <% end %>
     <input type="submit" value="SENT">
   <% end %>
 </div>

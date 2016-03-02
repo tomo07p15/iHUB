@@ -8,6 +8,7 @@ before_action :move_to_index, except: :index
   end
 
   def new
+  @ongoing = Ongoing.new
   end
 
   def destroy
