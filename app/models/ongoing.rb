@@ -1,4 +1,4 @@
 class Ongoing < ActiveRecord::Base
-has_many :comments
+has_many :ongoingcomments
 belongs_to :user
 end

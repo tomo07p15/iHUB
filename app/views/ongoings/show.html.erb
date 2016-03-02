@@ -38,3 +38,31 @@
     </span>
   </div>
 
+
+
+
+
+
+  <div class="container">
+  <% if current_user %>
+    <%= form_tag("/ongoings/#{@ongoing.id}/ongoingcomments", method: :post) do %>
+    <textarea cols="30" name="ongoingcomment" placeholder="コメントする" rows="2"></textarea>
+    <input type="submit" value="SENT">
+      <% end %>
+    <% end %>
+  </div>
+
+   <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @ongoingcomments %>
+        <% @ongoingcomments.each do |ongoingcomment| %>
+          <p>
+            <storng><%= link_to ongoingcomment.user.nickname, "/users/#{ongoingcomment.user_id}" %>：</strong>
+            <%= ongoingcomment.ongoingcomment %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
