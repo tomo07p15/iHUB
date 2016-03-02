@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :twigs
   has_many :comments
   has_many :ongoings
+  has_many :ongoingcomments
 end

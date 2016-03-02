@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :ongoings do
-    resources :comments, only: [:create]
+    resources :ongoingcomments, only: [:create]
   end
 end

@@ -29,6 +29,7 @@ before_action :move_to_index, except: :index
 
   def show
     @ongoing = Ongoing.find(params[:id])
+    @ongoingcomments = @ongoing.ongoingcomments.includes(:user)
   end
 
   def create

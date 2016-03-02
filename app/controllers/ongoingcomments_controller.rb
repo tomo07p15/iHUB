@@ -1,6 +1,6 @@
 class OngoingcommentsController < ApplicationController
 def create
-    @comment = Comment.create(ongoingcomment: comment_params[:ongoingcomment], ongoing_id: comment_params[:ongoing_id], user_id: current_user.id)
+    @comment = Ongoingcomment.create(ongoingcomment: comment_params[:ongoingcomment], ongoing_id: comment_params[:ongoing_id], user_id: current_user.id)
     redirect_to "/ongoings/#{@comment.ongoing.id}"
   end
 
