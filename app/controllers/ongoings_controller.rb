@@ -4,6 +4,7 @@ before_action :move_to_index, except: :index
 
   def index
     @ongoings = Ongoing.includes(:user).order("created_at DESC")
+    @ongoing = Ongoing.new
   end
 
   def new

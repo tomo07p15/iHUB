@@ -29,9 +29,9 @@
     <%= link_to "詳細", "/ongoings/#{ongoing.id}/", method: :get %>
     </div>
 
-    <div class="ongoingimage">
-      <%= ongoing.image %>
-    </div>
+      <div class="ongoingimage">
+        <%= image_tag(ongoing.image) %>
+      </div>
 
     <div class="ongoingsammury">
       <%= ongoing.summary %>
@@ -40,3 +40,10 @@
 
   </div>
 </div>
+
+
+
+
+<%= form_for @ongoing do |f| %>
+  <%= f.file_field :image %>
+<% end %>
