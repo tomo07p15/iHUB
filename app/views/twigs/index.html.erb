@@ -6,8 +6,7 @@
 
 
   <body>
-<header>
-
+<header class="header">
   <div class="navbar">
   <%= render partial:"header" %>
   </div>
@@ -27,9 +26,13 @@
       <% end %>
     </div>
 
-      <div class="twig">
+
         <% @twigtweets.each do |twigtweet| %>
           <%= render partial:"twig", locals: { twigtweet: twigtweet} %>
         <% end %>
-    </div>
+
+  <div class="right-content">
+  </div>
+
 </body>
+

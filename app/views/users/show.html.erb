@@ -1,12 +1,13 @@
-<header>
-
+  <body>
+<header class="header">
   <div class="navbar">
-  <%= render partial:"twigs/header" %>
+  <%= render partial:"users/header" %>
   </div>
 </header>
 
+<div class="contents" >
   <div class="left-content">
-  <%= render partial:"twigs/profile" %>
+  <%= render partial:"users/profile" %>
   </div>
 
   <div class="center-content">
@@ -17,8 +18,9 @@
       <% end %>
     </div>
 
-        <div class="twig">
         <% @twigs.each do |twig| %>
-          <%= render partial: "twigs/twig", locals: { twigtweet: twig } %>
+          <%= render partial: "users/twig", locals: { twigtweet: twig } %>
         <% end %>
-</div>
+    </div>
+  </div>
+</body>
