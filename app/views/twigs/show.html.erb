@@ -29,10 +29,10 @@
   </div>
 
   <div class="container">
-  <% if current_user %>
-    <%= form_tag("/twigs/#{@twig.id}/comments", method: :post) do %>
-    <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-    <input type="submit" value="SENT">
+    <% if current_user %>
+      <%= form_for @comment,:url => twig_comments_path(params[:id]) do |f| %>
+      <%= f.text_field :text, placeholder: "What's comment?" %>
+      <%= f.submit "コメントする" %>
       <% end %>
     <% end %>
   </div>

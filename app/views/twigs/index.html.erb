@@ -20,10 +20,10 @@
 
   <div class="center-content">
     <div class="twigbox">
-      <%= form_tag('/twigs/new', method: :get) do %>
-      <input placeholder="What's idea?" type="text" name="name">
-      <input type="submit" value="sent">
-      <% end %>
+      <%= form_for(@twigtweet) do |f| %>
+      <%= f.text_field :twigtext, placeholder: "What's new idea?" %>
+      <%= f.submit "twig" %>
+    <% end %>
     </div>
 
 

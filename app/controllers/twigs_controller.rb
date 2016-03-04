@@ -5,6 +5,7 @@ before_action :move_to_index, except: :index
 
   def index
     @twigtweets = Twig.includes(:user).order("created_at DESC")
+    @twigtweet = Twig.new
   end
 
   def new
@@ -35,12 +36,15 @@ before_action :move_to_index, except: :index
   def show
     @twig = Twig.find(params[:id])
     @comments = @twig.comments.includes(:user)
+    @comment = Comment.new
   end
 
   private
   def twig_params
-    params.permit(:twigtext)
+    params.require(:twig).permit(:twigtext)
   end
+
+
 
   def move_to_index
       redirect_to action: :index unless user_signed_in?
