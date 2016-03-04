@@ -6,6 +6,9 @@ before_action :move_to_index, except: :index
   def index
     @twigtweets = Twig.includes(:user).order("created_at DESC")
     @twigtweet = Twig.new
+    # binding.pryt
+    # feed_contents = @twigtweets.feed_contents.includes(:content)
+    # @feed_contents = feed_contents.map(&:content)
   end
 
   def new
