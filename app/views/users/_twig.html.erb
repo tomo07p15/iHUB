@@ -3,13 +3,13 @@
       <img src= "team.jpg" alt="はいけい" class="backgroung-image">
     </div>
     <div class="twig-right">
-      <%= twigtweet.user.nickname %>
+      <a href="/users/<%= twigtweet.user_id %>"><%= twigtweet.user.nickname %></a>
       <%= twigtweet.twigtext %>
-        <% if user_signed_in? && current_user.id == twigtweet.user_id %>
           <ul class="more_list">
             <li>
               <%= link_to "詳細", "/twigs/#{twigtweet.id}/", method: :get %>
             </li>
+          <% if user_signed_in? && current_user.id == twigtweet.user_id %>
             <li>
               <%= link_to "編集", "/twigs/#{twigtweet.id}/edit", method: :get %>
             </li>
