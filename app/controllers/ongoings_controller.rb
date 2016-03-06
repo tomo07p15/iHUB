@@ -8,7 +8,7 @@ before_action :move_to_index, except: :index
   end
 
   def new
-  @ongoing = Ongoing.new
+    @ongoing = Ongoing.new
   end
 
   def destroy
@@ -40,7 +40,7 @@ before_action :move_to_index, except: :index
 
   private
   def ongoing_params
-    params.permit(:projectname, :projectslide, :projectname, :insight, :image, :summary)
+    params.require(:ongoing).permit(:projectname, :projectslide, :projectname, :insight, :image, :summary)
   end
 
 

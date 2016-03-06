@@ -4,46 +4,67 @@
 </head>
 
 
-  <body>
-<header class="header">
+<body>
+
+<header class="headerall">
   <div class="navbar">
-  <%= render partial:"twigs/header" %>
+    <ul>
+      <li><img src= "/assets/seedicongreen.png" alt="タイムラインアイコン" class="backgroung-image"><a href="/twigs">Timeline</a></li>
+      <% if user_signed_in? %>
+      <li><img src= "/assets/twigicongreen.png" alt="Twigアイコン" class="backgroung-image"><a href="/users/<%= current_user.id %>">Twig(未実装）</a></li>
+
+      <li><img src= "/assets/flowericongreen.png" alt="Ongoingアイコン" class="backgroung-image"><a href="/ongoings">Ongoing</a></li>
+      <% end %>
+    </ul>
+
+
+      <!-- <li class="usertab"> -->
+      <% if user_signed_in? %>
+      </div>
+        <div class="user_nav_grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a href="/users/<%= current_user.id %>">マイページ</a>
+      </div>
+      <% else %>
+        <div class="grid-6">
+            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+          </div>
+      <% end %>
+      </div>
+    </div>
+    </ul>
   </div>
 </header>
 
-<div class="twigbox">
+</div>
+
+<div class="contents" >
+  <div class="left-content">
+  <%= render partial:"twigs/profile" %>
+  </div>
+
+<div class="center-content">
+    <div class="twigbox">
       <%= form_tag('/ongoings/new', method: :get) do %>
       <input type="submit" value="sent">
       <% end %>
     </div>
-
-
-</div>
-
-<div class="ongoingcontents">
-<% @ongoings.each do |ongoing| %>
-  <div class="ongoingbox">
-    <div class="ongoingtitle">
+  <% @ongoings.each do |ongoing| %>
+  <ul class="ongoingbox">
+    <li class="ongoingtitle">
     <%= ongoing.projectname %>
     <%= link_to "詳細", "/ongoings/#{ongoing.id}/", method: :get %>
-    </div>
+    </li>
 
 
-      <div class="ongoingimage">
+      <li class="ongoingimage">
         <%= image_tag(ongoing.image) %>
-      </div>
+      </li>
 
-    <div class="ongoingsammury">
+    <li class="ongoingsammury">
       <%= ongoing.summary %>
-    </div>
-    <% end %>
-
-  </div>
-</div>
-
-
-
-
-<%= form_for @ongoing do |f| %>
-  <%= f.file_field :image %>
+    </li>
+  </ul>
 <% end %>
+</div>

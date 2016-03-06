@@ -1,12 +1,41 @@
-<header>
 
+<header class="headerall">
   <div class="navbar">
-  <%= render partial:"header" %>
+    <ul>
+      <li><img src= "/assets/seedicongreen.png" alt="タイムラインアイコン" class="backgroung-image"><a href="/twigs">Timeline</a></li>
+      <% if user_signed_in? %>
+      <li><img src= "/assets/twigicongreen.png" alt="Twigアイコン" class="backgroung-image"><a href="/users/<%= current_user.id %>">Twig(未実装）</a></li>
+
+      <li><img src= "/assets/flowericongreen.png" alt="Ongoingアイコン" class="backgroung-image"><a href="/ongoings">Ongoing</a></li>
+      <% end %>
+    </ul>
+
+
+      <!-- <li class="usertab"> -->
+      <% if user_signed_in? %>
+      <div class="submit-header">
+      <a href= '/twigs/new'>
+        <div class="submitbutton">send</div>
+      </a>
+      </div>
+        <div class="user_nav_grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a href="/users/<%= current_user.id %>">マイページ</a>
+      </div>
+      <% else %>
+        <div class="grid-6">
+            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+          </div>
+      <% end %>
+      </div>
+    </div>
+    </ul>
   </div>
 </header>
 
 <div class ="contents row">
-            <% if user_signed_in? && current_user.id == @twig.user_id %>
+    <% if user_signed_in? && current_user.id == @twig.user_id %>
      <div class="more">
       <ul class="more_list">
         <li>

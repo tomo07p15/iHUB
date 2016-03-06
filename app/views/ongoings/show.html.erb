@@ -1,8 +1,33 @@
 <header>
-
+<header class="headerall">
   <div class="navbar">
-  <%= render partial:"twigs/header" %>
+    <ul>
+      <li><img src= "/assets/seedicongreen.png" alt="タイムラインアイコン" class="backgroung-image"><a href="/twigs">Timeline</a></li>
+      <% if user_signed_in? %>
+      <li><img src= "/assets/twigicongreen.png" alt="Twigアイコン" class="backgroung-image"><a href="/users/<%= current_user.id %>">Twig(未実装）</a></li>
+
+      <li><img src= "/assets/flowericongreen.png" alt="Ongoingアイコン" class="backgroung-image"><a href="/ongoings">Ongoing</a></li>
+      <% end %>
+    </ul>
+
+
+      <!-- <li class="usertab"> -->
+      <% if user_signed_in? %>
+        <div class="user_nav_grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a href="/users/<%= current_user.id %>">マイページ</a>
+      </div>
+      <% else %>
+        <div class="grid-6">
+            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+          </div>
+      <% end %>
+      </div>
+    </div>
+    </ul>
   </div>
+</header>
 </header>
 
 <div class ="contents row">
@@ -24,7 +49,8 @@
     </div>
 
     <div class="projectslide">
-      <%= @ongoing.projectslide %>
+    <iframe src="https://docs.google.com/presentation/d/1bJZUd271MsY-UWBwO8Wb_ewpaGncqrJCwpObWyvz_Fk/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <iframe src="<% @ongoing.projectslide %>"></iframe>
     </div>
 
     <div class="insight">
