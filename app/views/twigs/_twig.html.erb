@@ -3,7 +3,7 @@
       <img src= "team.jpg" alt="はいけい" class="backgroung-image">
     </div>
     <div class="twig-right">
-      <%= twigtweet.user.nickname %>
+      <a href="/users/<%= twigtweet.user_id %>"><%= twigtweet.user.nickname %></a>
       <%= twigtweet.twigtext %>
 
           <ul class="more_list">

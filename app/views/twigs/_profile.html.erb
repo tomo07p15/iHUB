@@ -10,13 +10,13 @@
         <table class="statusbox">
           <tr>
             <th>Seed</th>
-            <th>Twig</th>
+            <th></th>
             <th>Ongoing</th>
           </tr>
           <tr>
             <td>7700</td>
             <td><%= Twig.group(:user_id).count.keys %></td>
-            <td>10</td>
+            <td><%= Ongoing.group(:user_id).count.keys %></td>
           </tr>
         </table>
       </div>
