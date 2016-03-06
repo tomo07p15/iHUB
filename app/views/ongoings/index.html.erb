@@ -50,8 +50,11 @@
       <input type="submit" value="sent">
       <% end %>
     </div>
+
+
   <% @ongoings.each do |ongoing| %>
-  <ul class="ongoingbox">
+  <% if user_signed_in? && current_user.id == ongoing.user_id %>
+    <ul class="ongoingbox">
     <li class="ongoingtitle">
     <%= ongoing.projectname %>
     <%= link_to "詳細", "/ongoings/#{ongoing.id}/", method: :get %>
@@ -66,5 +69,6 @@
       <%= ongoing.summary %>
     </li>
   </ul>
+  <% end %>
 <% end %>
 </div>
